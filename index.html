@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBS Tap Game</title>a
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="instructions">
+    <h2>Game Rules</h2>
+    <p>Tap the button as many times as you can in 10 seconds to win!</p>
+    <p>Target: 25 taps</p>
+</div>
+<div class="container">
+
+    <div class="game">
+        <h1>Welcome to the DBS Tap Game!</h1>
+        <input type="text" id="playerName" placeholder="Enter your name">
+        <button id="startButton">Start Game</button>
+        <p id="timer">Time left: 10 seconds</p>
+        <p id="tapCount">Taps: 0</p>
+        <button id="tapButton" disabled style="width:50%">Tap Me!</button>
+
+        <audio id="tapSound" src="tap-sound.mp3"></audio>
+    </div>
+</div>
+
+<div class="progress-container">
+    <div id="verticalProgressBar" class="vertical-progress"></div>
+</div>
+<div class="popup" id="resultPopup">
+    <div class="popupContainer" id="resultPopupContainer">
+        <p class="popupText" id="popupText"></p>
+        <button id="playAgainButton">Play Again</button>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
