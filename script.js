@@ -41,10 +41,14 @@ tapButton.addEventListener('click', () => {
         updateVerticalProgressBar();
         playTapSound();
 
-        if (tapCount === 15) {
-            showMilestoneNotification('Congratulations! You reached 15 taps!');
-
-        }
+         if (tapCount < 15) {
+                    displayResultPopup(false); // Show "You have failed" message
+                } else if (tapCount >= 15 && tapCount < 25) {
+                showMilestoneNotification('Congratulations! You have hit the 1st milestone! Continue to strive harder');
+                    displayResultPopup(true); // Show milestone notification message
+                } else if (tapCount >= 25) {
+                    displayResultPopup(true); // Show "Congratulations! You won" message
+                }
     }
 });
 
@@ -60,6 +64,9 @@ function showMilestoneNotification(message) {
 
     setTimeout(() => {
         document.body.removeChild(notification);
+        if (tapCount === 25) {
+                    displayResultPopup(true); // Show the final results popup for reaching 25 taps
+                }
     }, 3000); // Hide the notification after 3 seconds (adjust as needed)
 }
 function updateVerticalProgressBar() {
@@ -82,7 +89,12 @@ function checkResult() {
     if (tapCount >= 25) {
         popupText.textContent = 'Congratulations! You won 20% off vouchers!';
         resultPopupContainer.style.backgroundColor = 'green';
-    } else {
+    } else if (tapCount >= 15 && tapCount < 25){
+     popupText.textContent = 'Congratulations! You won 10% off vouchers!';
+            resultPopupContainer.style.backgroundColor = 'green';
+    } 
+    
+    else {
         popupText.textContent = 'Sorry, you did not win! Try again.';
         resultPopupContainer.style.backgroundColor = 'red';
     }
