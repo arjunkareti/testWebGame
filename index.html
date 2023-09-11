@@ -7,29 +7,43 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<!-- Start Game Popup -->
+<div class="popup" id="startPopup">
+    <div class="popupContainer" id="startPopupContainer">
+        <p class="popupText" id="startpopupText"></p>
+        <button id="startButton">Start Game</button>
+    </div>
+</div>
 
-<div class="instructions">
-    <h2>Game Rules</h2>
-    <p>Tap the button as many times as you can in 10 seconds to win!</p>
-    <p>Target: 25 taps</p>
+
+<div class="timer">
+    <h1>Welcome to the MarTech Tap Game!</h1>
+    <p id="timer">Time left: 10 seconds</p>
 </div>
 <div class="container">
 
     <div class="game">
-        <h1>Welcome to the CBG MarTech Tap Game!</h1>
-        <input type="text" id="playerName" placeholder="Enter your name">
-        <button id="startButton">Start Game</button>
-        <p id="timer">Time left: 10 seconds</p>
         <p id="tapCount">Taps: 0</p>
-        <button id="tapButton" disabled style="width:50%">Tap Me!</button>
-
+       <!-- <input type="text" id="playerName" placeholder="Enter your name">-->
+        <!-- Replace the button element with an image element -->
+        <img id="tapButton" src="giftbox.png" alt="Tap Me!" disabled style="width: 150px; height: 150px;">
+       <!-- <button id="tapButton" disabled style="width:50%">Tap Me!</button>-->
         <audio id="tapSound" src="tap-sound.mp3"></audio>
     </div>
+    <div class="progress-container">
+        <div id="verticalProgressBar" class="vertical-progress"></div>
+    </div>
+    <div class="overlay">
+        <img src="meterPicture.png" alt="Overlay Image" style="width: 100%;">
+    </div>
+</div>
+<div class="instructions">
+    <h2>Game Rules</h2>
+    <p>Tap the GIFT BOX as many times as you can in 10 seconds to win!</p>
+    <p>Target: 25 taps</p>
+    <!--<button id="startButton" style="width:50%" >Start Game</button>-->
 </div>
 
-<div class="progress-container">
-    <div id="verticalProgressBar" class="vertical-progress"></div>
-</div>
 <div class="popup" id="resultPopup">
     <div class="popupContainer" id="resultPopupContainer">
         <p class="popupText" id="popupText"></p>
