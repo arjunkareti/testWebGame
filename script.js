@@ -1,61 +1,87 @@
 // script.js
 const startButton = document.getElementById('startButton');
-const playerNameInput = document.getElementById('playerName');
-const timerElement = document.getElementById('timer');
+const timerOverlay = document.getElementById('timerOverlay');
 const tapCountElement = document.getElementById('tapCount');
 const tapButton = document.getElementById('tapButton');
 const resultPopup = document.getElementById('resultPopup');
 const popupText = document.getElementById('popupText');
 const playAgainButton = document.getElementById('playAgainButton');
-const verticalProgressBar = document.getElementById('verticalProgressBar');
+const horizontalProgressBar = document.getElementById('horizontalProgressBar');
 
 let tapCount = 0;
 let secondsLeft = 10;
 let timerInterval;
+let isEvenTap = false;
+playAgainButton.style.display = 'none';
+messageImage.style.display = 'none';
+
 
 startButton.addEventListener('click', () => {
-    const playerName = playerNameInput.value;
-    if (playerName === '') {
-        alert('Please enter your name to start.');
-        return;
-    }
+console.log("i have started the game")
+    startGame();
+    startButton.style.display = 'none'; // Hide the "Play Again" button
 
+
+});
+
+
+function startGame(){
     startButton.disabled = true;
-    playerNameInput.disabled = true;
     tapButton.disabled = false;
+    updateTimerDisplay();
+
 
     timerInterval = setInterval(() => {
         secondsLeft--;
-        timerElement.textContent = `Time left: ${secondsLeft} seconds`;
+        updateTimerDisplay();
         if (secondsLeft === 0) {
-            clearInterval(timerInterval);
             checkResult();
+            console.log(tapButton.disabled)
+            console.log("i have checked result in start game function")
+            startButton.style.display = 'block';
+            console.log("this is the seconds is 0 under the startGame function")
+            console.log(tapButton.disabled)
+            clearInterval(timerInterval);
         }
     }, 1000);
-});
+}
+function updateTimerDisplay() {
+    timerOverlay.textContent = `${secondsLeft}`;
+}
+document.getElementById('tapButton').addEventListener('click', () => {
+       if (secondsLeft > 0) {
+           tapCount++;
+           tapCountElement.textContent = `Taps: ${tapCount}`;
+           updateHorizontalProgressBar();
+           playTapSound();
 
-tapButton.addEventListener('click', () => {
-    if (secondsLeft > 0) {
-        tapCount++;
-        tapCountElement.textContent = `Taps: ${tapCount}`;
-        updateVerticalProgressBar();
-        playTapSound();
+            if (tapCount % 2 === 0) {
+                       tapButton.src = 'closechest.png'; // Change to the second image
+                   } else {
+                       tapButton.src = 'openchest2.png'; // Change to the first image
+                   }
 
-         if (tapCount < 15) {
-                    displayResultPopup(false); // Show "You have failed" message
-                } else if (tapCount >= 15 && tapCount < 25) {
-                showMilestoneNotification('Congratulations! You have hit the 1st milestone! Continue to strive harder');
-                    displayResultPopup(true); // Show milestone notification message
-                } else if (tapCount >= 25) {
-                    displayResultPopup(true); // Show "Congratulations! You won" message
-                }
-    }
-});
+             if (tapCount >= 15 && tapCount < 25) {
+                   showMilestoneNotification('Congratulations! You have hit the 1st milestone! Continue to strive harder');
+                       //displayResultPopup(true); // Show milestone notification message
+                       console.log("i have displayed the milestone message")
+                   }
+       } else {
+            checkResult();
+            console.log("this is the seconds is 0 else condition under the tap function")
+       }
+   });
 
 playAgainButton.addEventListener('click', () => {
-    resultPopup.style.display = 'none';
+    resultPopup.style.display = 'block';
+    console.log("yyou have clicked play again")
     resetGame();
+    console.log("play again func has called reset game")
+/*    startButton.disabled = false;
+    console.log("play again func has enabled start button")
+    startButton.style.display = 'none';*/
 });
+
 function showMilestoneNotification(message) {
     const notification = document.createElement("div");
     notification.classList.add("milestone-notification");
@@ -65,15 +91,18 @@ function showMilestoneNotification(message) {
     setTimeout(() => {
         document.body.removeChild(notification);
         if (tapCount === 25) {
-                    displayResultPopup(true); // Show the final results popup for reaching 25 taps
+              //displayResultPopup(true); // Show the final results popup for reaching 25 taps
                 }
     }, 3000); // Hide the notification after 3 seconds (adjust as needed)
 }
-function updateVerticalProgressBar() {
-    const maxProgressHeight = verticalProgressBar.parentElement.clientHeight;
-    const tapPercentage = (tapCount / 25) * 100;
-    const progressHeight = (tapPercentage / 100) * maxProgressHeight;
-    verticalProgressBar.style.height = `${progressHeight}px`;
+function updateHorizontalProgressBar() {
+    const maxProgressWidth = horizontalProgressBar.parentElement.clientWidth;
+    const tapPercentage = (tapCount / 250) * 100;
+    const progressWidth = (tapPercentage / 100) * maxProgressWidth;
+    horizontalProgressBar.style.width = `${progressWidth}px`;
+
+ /*   const progressImage = document.querySelector('.progress-image');
+        progressImage.style.width = `${progressWidth}px`;*/
 }
 
 function playTapSound() {
@@ -84,30 +113,50 @@ function playTapSound() {
 
 function checkResult() {
     tapButton.disabled = true;
-    resultPopup.style.display = 'flex';
+    console.log("i have disabled tap button in checkResult function")
+    console.log(tapButton.disabled)
+    resultPopup.style.display = 'block';
+    console.log("i have displayed the results")
+    console.log(tapCount)
 
     if (tapCount >= 25) {
+
         popupText.textContent = 'Congratulations! You won 20% off vouchers!';
-        resultPopupContainer.style.backgroundColor = 'green';
-    } else if (tapCount >= 15 && tapCount < 25){
-     popupText.textContent = 'Congratulations! You won 10% off vouchers!';
-            resultPopupContainer.style.backgroundColor = 'green';
-    } 
-    
-    else {
+       /* resultPopup.style.backgroundColor = 'green';*/
+    } else if (tapCount >= 15 && tapCount < 25) {
+        console.log("i have entered the display if else condition")
+        popupText.textContent = 'Congratulations! You won 10% off vouchers!';
+      /*  resultPopup.style.backgroundColor = 'green';*/
+    } else {
         popupText.textContent = 'Sorry, you did not win! Try again.';
-        resultPopupContainer.style.backgroundColor = 'red';
+        /*resultPopup.style.backgroundColor = 'red';*/
     }
+
+
+
+playAgainButton.style.display = 'flex';
+    //Enable the "play again" button
+    playAgainButton.disabled = false;
+    /*startButton.style.display = 'block'
+    setTimeout(() => {
+            startButton.style.display = 'block';
+        }, 1000); // Adjust the delay as needed*/
+        messageImage.style.display = 'flex';
 }
+
+
 
 function resetGame() {
     tapButton.disabled = true;
     startButton.disabled = false;
-    playerNameInput.disabled = false;
     tapCount = 0;
     secondsLeft = 10;
-    timerElement.textContent = `Time left: ${secondsLeft} seconds`;
+    timerOverlay.textContent = `${secondsLeft}`;
     tapCountElement.textContent = 'Taps: 0';
-    verticalProgressBar.style.height = '0';
+    horizontalProgressBar.style.width = '0';
     clearInterval(timerInterval);
+    tapButton.src = 'closechest.png';
+    resultPopup.style.display = 'none';
+    playAgainButton.style.display = 'none';
+    messageImage.style.display = 'none';
 }
