@@ -9,7 +9,7 @@ const playAgainButton = document.getElementById('playAgainButton');
 const horizontalProgressBar = document.getElementById('horizontalProgressBar');
 
 let tapCount = 0;
-let secondsLeft = 10;
+let secondsLeft = 60;
 let timerInterval;
 let isEvenTap = false;
 playAgainButton.style.display = 'none';
