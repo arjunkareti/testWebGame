@@ -138,16 +138,16 @@ function checkResult() {
     console.log("i have displayed the results")
     console.log(tapCount)
 
-    if (tapCount >= 601) {
+    if (tapCount >= 600) {
         popupText.textContent = 'Congratulations! You won S$5K credits!';
-    } else if (tapCount >= 545 && tapCount < 600) {
+    } else if (tapCount >= 430 && tapCount < 599) {
         console.log("i have entered the display if else condition")
         popupText.textContent = 'Congratulations! You won S$2K credits!';
-    }else if (tapCount >= 290 && tapCount < 545) {
+    }else if (tapCount >= 280 && tapCount < 430) {
         console.log("i have entered the display if else condition")
         popupText.textContent = 'Congratulations! You won 60% off!';
         }
-    else if (tapCount >= 90 && tapCount < 290) {
+    else if (tapCount >= 130 && tapCount < 280) {
         console.log("i have entered the display if else condition")
         popupText.textContent = 'Congratulations! You won 45% off!';
         }
