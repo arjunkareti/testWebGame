@@ -184,25 +184,25 @@ height: 100px;
 #offer1{
 width: 100px;
     position: relative;
-    left: 0px;
+    left: 40px;
     top: -35px;
 }
 #offer2{
     width: 100px;
-    left: 20px;
+    left: 48px;
 	   top: -35px;
     position: relative;
 }
 #offer3{
     width: 125px;
-    left: 80px;
+    left: 60px;
 	   top: -35px;
     position: relative;
 }
 #offer4{
     width: 140px;
     position: relative;
-    left: 113px;
+    left: 90px;
     top: -30px;
     pointer-events:none;
 }
