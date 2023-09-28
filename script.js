@@ -119,7 +119,7 @@ playAgainButton.addEventListener('click', () => {
 }*/
 function updateHorizontalProgressBar() {
     const maxProgressWidth = horizontalProgressBar.parentElement.clientWidth;
-    const tapPercentage = (tapCount / 750) * 100;
+    const tapPercentage = (tapCount / 635) * 100;
     const progressWidth = (tapPercentage / 100) * maxProgressWidth;
     horizontalProgressBar.style.width = `${progressWidth}px`;
 }
