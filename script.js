@@ -10,7 +10,7 @@ const horizontalProgressBar = document.getElementById('horizontalProgressBar');
 const backgroundMusic = document.getElementById('backgroundMusic');
 
 let tapCount = 0;
-let secondsLeft = 60;
+let secondsLeft = 30;
 let timerInterval;
 let isEvenTap = false;
 playAgainButton.style.display = 'none';
@@ -40,7 +40,7 @@ function startGame(){
             checkResult();
             console.log(tapButton.disabled)
             console.log("i have checked result in start game function")
-            startButton.style.display = 'block';
+            startButton.style.display = 'none';
             console.log("this is the seconds is 0 under the startGame function")
             console.log(tapButton.disabled)
             clearInterval(timerInterval);
@@ -102,6 +102,7 @@ playAgainButton.addEventListener('click', () => {
     resetGame();
     console.log("play again func has called reset game")
     gameStarted = false;
+    startButton.style.display = 'block';
 });
 
 /*function showMilestoneNotification(message) {
