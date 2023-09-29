@@ -120,7 +120,7 @@ playAgainButton.addEventListener('click', () => {
 }*/
 function updateHorizontalProgressBar() {
     const maxProgressWidth = horizontalProgressBar.parentElement.clientWidth;
-    const tapPercentage = (tapCount / 635) * 100;
+    const tapPercentage = (tapCount / 220) * 100;
     const progressWidth = (tapPercentage / 100) * maxProgressWidth;
     horizontalProgressBar.style.width = `${progressWidth}px`;
 }
@@ -139,16 +139,16 @@ function checkResult() {
     console.log("i have displayed the results")
     console.log(tapCount)
 
-    if (tapCount >= 600) {
+    if (tapCount >= 211) {
         popupText.textContent = 'Congratulations! You won S$5K credits!';
-    } else if (tapCount >= 430 && tapCount < 599) {
+    } else if (tapCount >= 149 && tapCount < 210) {
         console.log("i have entered the display if else condition")
         popupText.textContent = 'Congratulations! You won S$2K credits!';
-    }else if (tapCount >= 280 && tapCount < 430) {
+    }else if (tapCount >= 95 && tapCount < 148) {
         console.log("i have entered the display if else condition")
         popupText.textContent = 'Congratulations! You won 60% off!';
         }
-    else if (tapCount >= 130 && tapCount < 280) {
+    else if (tapCount >= 45 && tapCount < 94) {
         console.log("i have entered the display if else condition")
         popupText.textContent = 'Congratulations! You won 45% off!';
         }
