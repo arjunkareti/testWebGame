@@ -170,7 +170,7 @@ function resetGame() {
     tapButton.disabled = true;
     startButton.disabled = false;
     tapCount = 0;
-    secondsLeft = 60;
+    secondsLeft = 30;
     timerOverlay.textContent = `${secondsLeft}`;
     tapCountElement.textContent = 'Taps: 0';
     horizontalProgressBar.style.width = '0';
