@@ -32,6 +32,10 @@ h1, h2 {
     margin-top: 10px;
     border-radius: 5px;
     background: black;
+    position: fixed; /* Position fixed to keep it at the bottom right */
+    bottom: 200px; /* Adjust as needed */
+    right: 290px; /* Adjust as needed */
+    z-index: 999; /* Set an appropriate z-index */
 }
 
 .toggleWrapper input.mobileToggle {
