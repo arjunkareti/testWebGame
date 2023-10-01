@@ -34,7 +34,7 @@ h1, h2 {
     /*background: black;*/
     position: fixed; /* Position fixed to keep it at the bottom right */
     bottom: 40px; /* Adjust as needed */
-    right: 45px; /* Adjust as needed */
+    right: 43px; /* Adjust as needed */
     z-index: 999; /* Set an appropriate z-index */
 }
 
