@@ -11,7 +11,7 @@ const toggleCheckbox = document.getElementById ('toggle1');
 const backgroundMusic = document.getElementById ('backgroundMusic');
 
 let tapCount = 0;
-let secondsLeft = 3;
+let secondsLeft = 30;
 let timerInterval;
 let isEvenTap = false;
 playAgainButton.style.display = 'none';
