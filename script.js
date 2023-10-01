@@ -105,6 +105,11 @@ function updateHorizontalProgressBar () {
 
 function playTapSound () {
   const tapSound = document.getElementById ('tapSound');
+  tapSound.addEventListener('canplaythrough', () => {
+      // The audio has loaded and can be played without interruption.
+      // You can now play the audio or perform other actions.
+      console.log('Audio is ready to play');
+  });
   tapSound.currentTime = 0;
   tapSound.play ();
 }
