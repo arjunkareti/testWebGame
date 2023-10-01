@@ -193,20 +193,20 @@ body {
 #offer1 {
     width: 100px;
     position: relative;
-    left: 40px;
+    left: 130px;
     top: -35px;
 }
 
 #offer2 {
     width: 100px;
-    left: 48px;
+    left: 125px;
     top: -35px;
     position: relative;
 }
 
 #offer3 {
     width: 125px;
-    left: 60px;
+    left: 120px;
     top: -35px;
     position: relative;
 }
@@ -214,7 +214,7 @@ body {
 #offer4 {
     width: 140px;
     position: relative;
-    left: 90px;
+    left: 100px;
     top: -30px;
     pointer-events: none;
 }
