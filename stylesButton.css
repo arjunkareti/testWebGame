@@ -50,7 +50,7 @@ h1, h2 {
     transition: 0.4s ease;
     height: 30px;
     width: 50px;
-    border: 1px solid black;
+    border: 1px /*solid black*/;
     border-radius: 60px;
 }
 
@@ -70,7 +70,7 @@ h1, h2 {
     content: "";
     position: absolute;
     display: block;
-    background: whitesmoke;
+    background: #323c39 /*whitesmoke*/;
     transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
     height: 28px;
     width: 28px;
@@ -81,7 +81,7 @@ h1, h2 {
 
 /* When Active */
 .toggleWrapper input.mobileToggle:checked + label:before {
-    background: #2ecc71; /* Active Color */
+    background: #323c39; /* Active Color #2ecc71*/
     transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
 }
 
