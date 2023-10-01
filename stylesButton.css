@@ -28,12 +28,12 @@ h1, h2 {
     margin: auto;
     padding: 5px;
     width: 55px;
-    border: 1px solid black;
+    border: 1px;
     margin-top: 10px;
     border-radius: 5px;
     /*background: black;*/
     position: fixed; /* Position fixed to keep it at the bottom right */
-    bottom: 35px; /* Adjust as needed */
+    bottom: 40px; /* Adjust as needed */
     right: 45px; /* Adjust as needed */
     z-index: 999; /* Set an appropriate z-index */
 }
