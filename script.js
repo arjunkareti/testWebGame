@@ -19,6 +19,31 @@ messageImage.style.display = 'none';
 backgroundMusic.volume = 0.2;
 let gameStarted = false;
 
+// Initialize audio elements
+const audioElements = [];
+
+// Preload audio files
+function preloadAudio() {
+  for (let i = 1; i <= 5; i++) {
+    const audio = new Audio(`jump${i}.wav`);
+    audioElements.push(audio);
+  }
+}
+
+// Play tap sound
+function playTapSound() {
+  if (audioElements.length > 0) {
+    const audio = audioElements.pop(); // Get an available audio element
+    audio.currentTime = 0;
+    audio.play();
+
+    // Add the audio element back to the pool after it finishes playing (optional)
+    audio.addEventListener('ended', () => {
+      audioElements.push(audio);
+    });
+  }
+}
+
 toggleCheckbox.addEventListener ('change', () => {
   if (toggleCheckbox.checked) {
     backgroundMusic.play ();
@@ -103,6 +128,7 @@ function updateHorizontalProgressBar () {
   horizontalProgressBar.style.width = `${progressWidth}px`;
 }
 
+/*
 function playTapSound () {
   const tapSound = document.getElementById ('tapSound');
   tapSound.addEventListener('canplaythrough', () => {
@@ -113,6 +139,7 @@ function playTapSound () {
   tapSound.currentTime = 0;
   tapSound.play ();
 }
+*/
 
 function checkResult () {
   tapButton.disabled = true;
@@ -151,3 +178,5 @@ function resetGame () {
   playAgainButton.style.display = 'none';
   messageImage.style.display = 'none';
 }
+// Call preloadAudio function to load audio files
+preloadAudio();
