@@ -31,10 +31,10 @@ h1, h2 {
     border: 1px solid black;
     margin-top: 10px;
     border-radius: 5px;
-    background: black;
+    /*background: black;*/
     position: fixed; /* Position fixed to keep it at the bottom right */
-    bottom: 10px; /* Adjust as needed */
-    right: 10px; /* Adjust as needed */
+    bottom: 25px; /* Adjust as needed */
+    right: 25px; /* Adjust as needed */
     z-index: 999; /* Set an appropriate z-index */
 }
 
