@@ -145,13 +145,13 @@ function checkResult () {
   tapButton.disabled = true;
   resultPopup.style.display = 'block';
 
-  if (tapCount >= 205) {
+  if (tapCount >= 250) {
     popupText.textContent = 'Congratulations! You won S$5K credits!';
-  } else if (tapCount >= 175 && tapCount < 205) {
+  } else if (tapCount >= 210 && tapCount < 250) {
     popupText.textContent = 'Congratulations! You won S$2K credits!';
-  } else if (tapCount >= 130 && tapCount < 175) {
+  } else if (tapCount >= 158 && tapCount < 210) {
     popupText.textContent = 'Congratulations! You won 60% off!';
-  } else if (tapCount >= 85 && tapCount < 130) {
+  } else if (tapCount >= 103 && tapCount < 158) {
     popupText.textContent = 'Congratulations! You won 45% off!';
   } else {
     popupText.textContent = 'Sorry, you did not win! Try again.';
