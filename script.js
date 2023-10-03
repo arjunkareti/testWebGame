@@ -24,7 +24,7 @@ const audioElements = [];
 
 // Preload audio files
 function preloadAudio() {
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 10; i++) {
     const audio = new Audio(`jump${i}.wav`);
     audioElements.push(audio);
   }
