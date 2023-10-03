@@ -29,20 +29,42 @@ function preloadAudio() {
     audioElements.push(audio);
   }
 }
-
 // Play tap sound
 function playTapSound() {
   if (audioElements.length > 0) {
-    const audio = audioElements.pop(); // Get an available audio element
-    audio.currentTime = 0;
-    audio.play();
+    for (let i = 0; i < 2; i++) {
+      const audio = audioElements.pop(); // Get an available audio element
+      audio.currentTime = 0;
 
-    // Add the audio element back to the pool after it finishes playing (optional)
-    audio.addEventListener('ended', () => {
-      audioElements.push(audio);
-    });
+      // Play the first audio element immediately
+      audio.play();
+
+      // Play the second audio element with a slight delay (e.g., 200 milliseconds)
+      setTimeout(() => {
+        audio.currentTime = 0;
+        audio.play();
+
+        // Add the audio element back to the pool after it finishes playing
+        audio.addEventListener('ended', () => {
+          audioElements.push(audio);
+        });
+      }, 200); // Adjust the delay as needed
+    }
   }
 }
+// // Play tap sound
+// function playTapSound() {
+//   if (audioElements.length > 0) {
+//     const audio = audioElements.pop(); // Get an available audio element
+//     audio.currentTime = 0;
+//     audio.play();
+
+//     // Add the audio element back to the pool after it finishes playing (optional)
+//     audio.addEventListener('ended', () => {
+//       audioElements.push(audio);
+//     });
+//   }
+// }
 
 toggleCheckbox.addEventListener ('change', () => {
   if (toggleCheckbox.checked) {
